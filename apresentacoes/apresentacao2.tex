@@ -1,0 +1,126 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+% apresentacao2.tex
+%
+% Este é um exemplo de apresentação em latex-beamer usando o tema "Urubu",
+% um tema extra-oficial feito para a comunidade do Instituto de Matemática 
+% da UFRJ (Universidade Federal do Rio de Janeiro).
+%
+% Este arquivo é parte do pacote `beamerthemeUrubu`, disponibilizado em
+% 
+%     https://github.com/~rmsrosa
+%
+% Mais informações sobre o tema no arquivo README.md, nas apresentações
+% disponibilzadas no pacote e nos comentários do arquivo 
+% `beamerthemeUrubu.sty`
+%
+% Written by Ricardo M. S. Rosa <http://www.im.ufrj.br/rrosa>
+%
+% Copyright (c) 2019 Ricardo M S Rosa <rrosa@im.ufrj.br>
+%
+% This work may be distributed and/or modified under the
+% conditions of the LaTeX Project Public License, either 
+% version 1.3 (LPPL-1.3c) of this license or any later version.
+%
+% The latest version of this license is in
+%
+%   http://www.latex-project.org/lppl.txt
+%
+% and version 1.3 or later is part of all distributions of LaTeX
+% version 2005/12/01 or later.
+%
+% This work has the LPPL maintenance status `maintained'.
+% 
+% The Current Maintainer of this work is Ricardo M. S. Rosa
+%
+% For the sake of this license, this work consists exclusively of the 
+% file `apresentacao2.tex`.
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\documentclass{beamer}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Load Packages
+%
+
+% load language related packages:
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[brazil]{babel}
+
+% load improved tables package
+\usepackage{booktabs}
+
+% load Urubu theme with \usetheme{Urubu}
+%\usetheme[CemAnos]{Urubu}
+
+% if loading from a directory relative to the current file's path, 
+% must use \usepackage{relative/path/to/beamerthemeUrubu} instead:
+\usepackage[footline]{../theme/sty/beamerthemeUrubu}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Presentation commands and macros
+%
+% New command to highlight text with color from the example block
+\newcommand{\highlight}[1]{{\usebeamercolor[fg]{block title example}#1}}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Define titlepage data
+% 
+\title[Tema Urubu para o \LaTeX-beamer]{Apresentação 2: O tema \emph{Urubu} para o \LaTeX-beamer com outras opções}
+\author[Ricardo M S Rosa]{Ricardo M. S. Rosa}
+\institute[IM-UFRJ]{Instituto de Matemática  \\ Universidade Federal do Rio de Janeiro}
+\info{Disponível em \href{https://github.com/rmsrosa/}{github.com/rmsrosa}}
+\date[26/Nov/2019]{26 de novembro de 2019}
+
+\begin{document}
+
+\begin{frame}
+  \titlepage
+\end{frame}
+
+\begin{frame}[fragile]{Opções do tema}
+  
+  Este tema possui as seguintes opções:
+
+  \begin{enumerate}
+    \item \highlight{Logomarca da UFRJ:}
+      \begin{enumerate}[a.]
+        \item Usar a logomarca Minerva da UFRJ, que é a opção \emph{default}, ou 
+        \item Usar a logomarca de Cem Anos da UFRJ, com a opção \highlight{\texttt{CemAnos}};
+      \end{enumerate}
+    \item \highlight{Posição da logomarca do IM:}
+      \begin{enumerate}[a.]
+        \item Usar a logomarca do IM no topo da página, que é a opção \emph{default}, ou 
+        \item usar a logomarca do IM no pé de página, com a opção \highlight{\texttt{footline}};
+      \end{enumerate}
+  \end{enumerate}
+
+  Desta vez, estamos usando a opção \highlight{\texttt{footline}} para a posição da logomarca do IM e deixando a opção \emph{default} de usar a logomarca Minerva da UFRJ. Isso é obtido com um dos seguintes comandos no preâmbulo:
+  \begin{center}
+    {\small\verb|\usetheme[footline]{Urubu}|}
+  \end{center}
+  ou 
+  \begin{center}
+    {\small\verb|\usepackage[footline]{path/to/theme/sty/beamerthemeUrubu}|}
+  \end{center}
+
+\end{frame}
+
+\begin{frame}{1\-2\-3\-4\-5\-6\-7\-8\-9\-1\-1\-2\-3\-4\-5\-6\-7\-8\-9\-2\-1\-2\-3\-4\-5\-6\-7\-8\-9\-3\-1\-2\-3\-4\-5\-6\-7\-8\-9\-4\-1\-2\-3\-4\-5\-6\-7\-8\-9\-5}
+
+  Veja que, com a logomarca do IM no pé de página, cada linha do título do \emph{frame} abriga até 50 caracteres. 
+  \medskip
+  
+  Como pode ser visto na \href{run:apresentacao1.pdf}{Apresentação 1}, com a logomarca em cima, cada linha do título do \emph{frame} abriga, no máximo, 42 caracteres, ou seja, 16\% a menos.
+
+\end{frame}
+
+\begin{frame}
+
+  \centerline{\Large Fim!}
+
+\end{frame}
+
+\end{document}

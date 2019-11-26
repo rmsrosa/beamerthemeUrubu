@@ -1,0 +1,365 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% 
+% beamerthemeUrubu.sty
+%
+% Latex-beamer presentation theme Urubu
+%
+% Written by Ricardo M. S. Rosa <http://www.im.ufrj.br/rrosa>
+%
+% Copyright (c) 2019 Ricardo M S Rosa <rrosa@im.ufrj.br>
+%
+% This work may be distributed and/or modified under the
+% conditions of the LaTeX Project Public License, either 
+% version 1.3 (LPPL-1.3c) of this license or any later version.
+%
+% The latest version of this license is in
+%
+%   http://www.latex-project.org/lppl.txt
+%
+% and version 1.3 or later is part of all distributions of LaTeX
+% version 2005/12/01 or later.
+%
+% This work has the LPPL maintenance status `maintained'.
+% 
+% The Current Maintainer of this work is Ricardo M. S. Rosa
+%
+% For the sake of this license, this work consists exclusively of the 
+% file beamerthemeUrubu.sty and not the associated image files 
+% `LogoIM.png', `002minerva_color_hor.png', and 
+% `ufrj-100-anos-colorido-horizontal.png', which are restricted to
+% members of the Universidade Federal do Rio de Janeiro, unless a
+% permission is obtained.
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+% USAGE AND OPTIONS
+%
+% Use this theme by including the following command in the preamble 
+% of your document:
+%
+%     \usetheme{Urubu}
+%
+% This style has the following options:
+%
+% 1) Using either the Minerva logo (default) or the University Cem Anos Logo
+% (option `CemAnos');
+% 2) Using the IM Logo in either the headline (default) or in the footline
+% (option `Footline');
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+% PACKAGE DECLARATION AND REQUIREMENTS
+%
+% Start the theme by declaring the provided package and setting the 
+% required packages
+%
+\ProvidesPackage{beamerthemeUrubu} % name of the provided theme package
+\RequirePackage{graphicx} % used for including the images
+\RequirePackage{pict2e} % used for drawing poligons
+\RequirePackage{fp} % used for the calculations of the progress bar
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+% THEME OPTIONS
+%
+% Set the options for the theme
+%
+\newif\ifUrubuinFootline \UrubuinFootlinefalse
+\newif\ifUFRJCemAnos \UFRJCemAnosfalse
+
+\DeclareOptionBeamer{footline}{\UrubuinFootlinetrue}
+\DeclareOptionBeamer{CemAnos}{\UFRJCemAnostrue}
+
+\ProcessOptionsBeamer
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+% COLORS
+%
+% Set the color scheme
+%
+\definecolor{IM red}{RGB}{164,52,36}%HEX A45236
+\definecolor{IM blue}{RGB}{75,147,208}%HEX: 4B93D6
+
+\colorlet{url color}{IM blue!50}
+\colorlet{file color}{IM red!50}
+
+\setbeamercolor{structure}{fg=IM red}
+
+\usecolortheme{rose}
+
+\setbeamercolor{block title}{fg=IM blue}
+\setbeamercolor{block title}{bg=IM blue!20}
+\setbeamercolor{block body}{fg=black}
+\setbeamercolor{block body}{bg=IM blue!10}
+%\usebeamercolor{block title example}\definecolor{file color}{named}{fg}
+
+\usebeamercolor{frametitle}\definecolor{frametitle}{named}{fg}
+\setbeamercolor{title in head/foot}{fg=frametitle!5}
+\setbeamercolor{author in head/foot}{fg=frametitle!5}
+\setbeamercolor{date in head/foot}{fg=frametitle!5}
+\setbeamercolor{frame in head/foot}{fg=frametitle!5}
+
+\hypersetup{
+    colorlinks=true,
+    linkcolor={url color},
+    filecolor={file color},
+    urlcolor={url color},
+}
+ 
+\urlstyle{same}
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+% POINTERS
+%
+% Set the pointers for items and reduce the left and right margins
+%
+\usesubitemizeitemtemplate{%
+    \tiny\raise1.5pt\hbox{\color{beamerstructure}$\blacktriangleright$}%
+}
+\usesubsubitemizeitemtemplate{%
+    \tiny\raise1.5pt\hbox{\color{beamerstructure}$\bigstar$}%
+}
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+% MARGINS
+%
+% Set the left and right margins
+%
+\setbeamersize{text margin left=0.8em,text margin right=0.8em}
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+% LOGO MACROS
+%
+% Define macros for the images used in the theme
+%
+\def\LogoIM{theme/img/LogoIM.png}
+\def\LogoUFRJMinerva{theme/img/002minerva_color_hor.png}
+\def\LogoUFRJCemAnos{theme/img/ufrj-100-anos-colorido-horizontal.png}
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+% SETTINGS
+%
+% Start the settings for the presentation modes (beamer, second, handout, and trans)
+%
+\mode<presentation>
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+% BACKGROUND
+%
+% Set the background, for both the front page and the remaining pages 
+%
+% A picture environment is created with unit lenght as the paperwidth, 
+% while the heigth is set according to the 4:3 ratio of the slide, hence 
+% length is 0.75 = 3/4 of the width
+%
+% An offset of 0.01 is needed for some reason, otherwise the background 
+% leaves an untouched thin white line along the left side.
+%
+\defbeamertemplate*{background}{Urubu}{
+  \setlength{\unitlength}{\paperwidth}
+  \begin{picture}(1,0.75)(0.01,0)
+    \put(0,0){\color{IM blue!10}\polygon*(0,0.6)(1,0.73)(1,0.75)(0,0.75)}
+    \put(0,0){\color{IM blue}\polygon*(0,0)(1,0)(1,0.034)(0,0.034)}
+    \ifnum\thepage>1
+      \ifUrubuinFootline
+        \put(0.0, 0.0){\includegraphics[scale=0.1]{\LogoIM}}
+      \else
+        \put(0.822, 0.7){\includegraphics[scale=0.12]{\LogoIM}}
+      \fi      
+    \else
+      \ifUFRJCemAnos
+        \put(0.5,0.070){\includegraphics[scale=0.227]{\LogoIM}}
+        \put(0.17,0.04){\includegraphics[scale=0.4]{\LogoUFRJCemAnos}}
+      \else
+        \put(0.5,0.070){\includegraphics[scale=0.227]{\LogoIM}}
+        \put(0.18,0.067){\includegraphics[scale=0.072]{\LogoUFRJMinerva}}
+      \fi
+    \fi
+  \end{picture}
+}
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+% TITLEPAGE
+%
+% Include an option for the meeting info in the default options for the 
+% title page available in beamerinnerthemedefault.sty
+%
+\newcommand{\info}[1]{\newcommand{\insertinfo}{#1}}
+
+\defbeamertemplate*{title page}{Urubu}
+{
+  \vbox{}
+  \vfill
+  \begingroup
+    \centering
+    \begin{beamercolorbox}[sep=8pt,center]{title}
+      \usebeamerfont{title}\inserttitle\par%
+      \ifx\insertsubtitle\@empty%
+      \else%
+        \vskip0.25em%
+        {\usebeamerfont{subtitle}\usebeamercolor[fg]{subtitle}\insertsubtitle\par}%
+      \fi%     
+    \end{beamercolorbox}%
+    \vskip1em\par
+    \begin{beamercolorbox}[sep=8pt,center]{author}
+      \usebeamerfont{author}\insertauthor
+    \end{beamercolorbox}
+    \begin{beamercolorbox}[sep=8pt,center]{institute}
+      \usebeamerfont{institute}\insertinstitute
+    \end{beamercolorbox}
+    \begin{beamercolorbox}[sep=8pt,center]{meeting}
+      \usebeamerfont{institute}\usebeamercolor[fg]{block title}\insertinfo
+    \end{beamercolorbox}
+    \begin{beamercolorbox}[sep=8pt,center]{date}
+      \usebeamerfont{date}\insertdate
+    \end{beamercolorbox}\vskip0.5em
+    {\usebeamercolor[fg]{titlegraphic}\inserttitlegraphic\par}
+    \vskip3em
+  \endgroup
+  \vfill
+} 
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+% HEADLINE
+%
+% Include a headline with the progress bar
+%
+\defbeamertemplate*{headline}{Urubu}
+{
+  \leavevmode      
+    \ifnum\inserttotalframenumber>0
+      \FPeval{\frameratio}{1/\inserttotalframenumber}  
+    \else
+      \FPeval{\frameratio}{1}
+    \fi
+    \FPeval{\framestart}{(\insertframenumber-1)*(frameratio)}
+    \setlength{\unitlength}{\paperwidth}
+    \begin{picture}(1,0.005)(0.013,0)
+    \ifnum\thepage=1
+      \put(0,0){\color{IM blue}\polygon*(0,0)(1,0)(1,0.005)(0,0.005)}
+    \else
+      \put(0,0){\color{IM blue!20}\polygon*(0,0)(1,0)(1,0.005)(0,0.005)}
+      \put(0,0){\color{IM blue}\polygon*(0,0)(\framestart,0)(\framestart,0.005)(0,0.005)}
+      \put(\framestart,0){\color{IM blue}\polygon*(0,0)(\frameratio,0)(\frameratio,0.005)(0,0.005)}
+      \put(\framestart,0.00055){\color{IM blue!20}\polygon(0,0)(\frameratio,0)(\frameratio,0.00385)(0,0.00385)}
+    \fi
+    \end{picture}
+  \vskip 0.0mm
+}
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+% Include a footbar with some info (the short versions of author, title, date 
+% and slide number), yielding some space at the left margin for the 
+% 'UFRJ 100 anos' logo.
+%
+% See https://tex.stackexchange.com/questions/183353/how-to-remove-link-from-title-in-foot
+% for the reason to add the commands \let\hyperlink\@secondoftwo to the footnote,
+% to avoid it being colored by the hyperlink color, becoming dark blue instead of nearly white
+% although I don't use the \makeatletter and \makeatother as mentioned in that page; 
+% see https://tex.stackexchange.com/questions/8351/what-do-makeatletter-and-makeatother-do
+%
+\newlength{\footdateleftskip}
+\newlength{\footauthorwidth}
+\newlength{\foottitlewidth}
+\newlength{\footdatewidth}
+\newlength{\footframewidth}
+
+\ifUrubuinFootline
+  \setlength{\footdateleftskip}{1.8cm}
+  \setlength{\footauthorwidth}{.34\paperwidth}
+  \setlength{\foottitlewidth}{.42\paperwidth}
+  \setlength{\footdatewidth}{.13\paperwidth}
+  \setlength{\footframewidth}{.11\paperwidth}
+\else
+  \setlength{\footdateleftskip}{0.2cm}
+  \setlength{\footauthorwidth}{.24\paperwidth}
+  \setlength{\foottitlewidth}{.52\paperwidth}
+  \setlength{\footdatewidth}{.12\paperwidth}
+  \setlength{\footframewidth}{.1\paperwidth}
+\fi
+  
+\defbeamertemplate*{footline}{Urubu}
+{
+  \leavevmode
+  \raisebox{1.2mm}[12pt][0pt]{
+    \ifnum\thepage>1
+    \hbox{
+    \begin{beamercolorbox}[wd=\footauthorwidth,ht=2.5ex,dp=1.125ex,
+      leftskip=\the\footdateleftskip, rightskip=0.0cm]{author in head/foot}
+      \usebeamerfont{author in head/foot}\insertshortauthor
+    \end{beamercolorbox}
+    \begin{beamercolorbox}[wd=\foottitlewidth,ht=2.5ex,dp=1.125ex,
+      leftskip=0.2cm, rightskip=0.0cm]{title in head/foot}
+      \usebeamerfont{title in head/foot}\let\hyperlink\@secondoftwo\insertshorttitle  
+    \end{beamercolorbox}
+    \begin{beamercolorbox}[wd=\footdatewidth,ht=2.5ex,dp=1.125ex,
+      leftskip=0.2cm, rightskip=0.0cm plus 1fill]{date in head/foot}
+      \usebeamerfont{date in head/foot}\insertshortdate
+    \end{beamercolorbox}
+    \begin{beamercolorbox}[wd=\footframewidth,ht=2.5ex,dp=1.125ex, right,
+      leftskip=0.2cm, rightskip=0.0cm]{frame in head/foot}
+      \usebeamerfont{date in head/foot}\insertframenumber/\inserttotalframenumber
+    \end{beamercolorbox}
+    }
+    \fi
+  }
+  \vskip 0mm
+}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+% Define the frametitle template to set the proper width for the title,
+% depending on the option of displaying the IM Logo either on top or on
+% the bottom of the frame.
+%
+\newlength{\myframetitlewidth}
+
+\ifUrubuinFootline
+  \setlength{\myframetitlewidth}{0.95\paperwidth}
+\else
+  \setlength{\myframetitlewidth}{0.8\paperwidth}
+\fi
+\defbeamertemplate*{frametitle}{Urubu}
+{
+    \nointerlineskip
+    \begin{beamercolorbox}[wd=\myframetitlewidth]{frametitle}
+        \vbox{}\vskip-0ex%
+        \strut\insertframetitle\strut
+        \vskip-1ex%
+    \end{beamercolorbox}
+}
+
+\mode<all>
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%

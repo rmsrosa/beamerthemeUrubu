@@ -1,0 +1,8 @@
+\frametitle{Barra de progresso}
+
+  Observe a barra de progresso acima.
+  \pause
+
+  \bigskip
+  Não muda quando usamos {\verb|\pause|} ou \emph{overlays} em um mesmo \emph{frame}.
+
