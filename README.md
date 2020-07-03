@@ -1,6 +1,6 @@
 # $\LaTeX$-*beamertheme* Urubu
 
-![GitHub repo size](https://img.shields.io/github/repo-size/rmsrosa/beamerthemeUrubu)
+![GitHub repo size](https://img.shields.io/github/repo-size/rmsrosa/beamerthemeUrubu) ![Various licenses](https://img.shields.io/badge/licences-various-blue)
 
 Este é o repositório do tema extra-oficial **Urubu** de apresentações em $\LaTeX$-*beamer* para a comunidade do [Instituto de Matemática](http://www.im.ufrj.br) da [Universidade Federal do Rio de Janeiro](https://ufrj.br).
 
