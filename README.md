@@ -1,18 +1,16 @@
-# $\LaTeX$-*beamertheme* Urubu
+# *LaTeX-beamertheme* Urubu
 
 ![GitHub repo size](https://img.shields.io/github/repo-size/rmsrosa/beamerthemeUrubu) ![Various licenses](https://img.shields.io/badge/licences-various-orange)
 
-Este é o repositório do tema extra-oficial **Urubu** de apresentações em $\LaTeX$-*beamer* para a comunidade do [Instituto de Matemática](http://www.im.ufrj.br) da [Universidade Federal do Rio de Janeiro](https://ufrj.br).
+Este é o repositório do tema extra-oficial **Urubu** de apresentações em *LaTeX-beamer* para a comunidade do [Instituto de Matemática](http://www.im.ufrj.br) da [Universidade Federal do Rio de Janeiro](https://ufrj.br).
 
-*This is an unofficial $\LaTeX$ beamer presentation theme for members of the [Institute of Mathematics](http://www.im.ufrj.br/index.php/en/) of the [Universidade Federal do Rio de Janeiro](http://www.im.ufrj.br).*
+*This is an unofficial LaTeX beamer presentation theme for members of the [Institute of Mathematics](http://www.im.ufrj.br/index.php/en/) of the [Universidade Federal do Rio de Janeiro](http://www.im.ufrj.br).*
 
 *Copyright © 2019 [Ricardo M. S. Rosa](http://www.im.ufrj.br/rrosa) - rrosa@im.ufrj.br*
 
-![Logo IM](readme_img/logoIM_small.png)
-
 ## Instalação
 
-Abaixo, diferentes modos de instalação do tema.
+Abaixo, dois modos diferentes de instalação do tema.
 
 ### Em um subdiretório do TEXMFHOME
 
@@ -32,30 +30,19 @@ Mais precisamente
     kpsewhich -var-value=TEXMFHOME
     ```
 
-1. Pode acontecer da variável TEXMFHOME apontar para um diretório que não exista ainda. Nesse caso, é necessário criar o diretório. Por exemplo, se TEXMFHOME aponta para `~/Library/texmf` mas esse diretório não existe, simplesmente crie esse diretório com
+1. Em seguida, crie a sequência de sub-diretórios `TEXMFHOME/tex/latex/commonstuff/beamerthemeUrubu/`. Isso pode ser feito com o comando `mkdir`, usando a opção `-p`:
 
     ```bash
-    cd ~/Library
-    mkdir texmf
-    ```
-
-1. Uma vez que o diretório TEXMFHOME exista, crie o subdiretório para o tema:
-
-    ```bash
-    cd $(kpsewhich -var-value=TEXMFHOME)
-    mkdir tex/latex/commonstuff/beamerthemeUrubu/
+    mkdir -p $(kpsewhich -var-value=TEXMFHOME)/tex/latex/commonstuff/beamerthemeUrubu/
     ```
 
 1. Em seguida, copie o subdiretório `theme` para o diretório recém-criado.
 
-**Observação:** Tudo isso pode ser feito de uma vez só, independentemente do diretório `TEXMFHOME` já existir ou não, com os comandos:
+    ```bash
+    cp -r path-to-theme $_
+    ```
 
-```bash
-mkdir $(kpsewhich -var-value=TEXMFHOME)/tex/latex/commonstuff/beamerthemeUrubu/
-cp -r path/to/theme $(kpsewhich -var-value=TEXMFHOME)/tex/latex/commonstuff/beamerthemeUrubu/
-```
-
-onde `path/to/theme` é o caminho para o subdiretório `theme`, conforme baixado para a sua máquina.
+onde `path/to/theme` é o caminho para o subdiretório `theme`, conforme baixado para a sua máquina e onde `$_` é uma variável que retorna o último argumento passado para o comando anterior (pelo menos em `bash` e `zsh`).
 
 ### Em um subdiretório do diretório da apresentação
 
@@ -105,7 +92,7 @@ ou
 
 ## Campo extra na página-título
 
-Um comando importante no $\LaTeX$ e, em particular, no *beamer*, é o `\titlepage`, que monta uma página-título, com várias informações. No caso do *beamer*, temos comandos específicos para os seguintes campos: **título** da apresentação, **subtítulo**, **nome** e **instituição** do(s) autor(es), e **data**. Além disso o *beamer* possui uma opção para a inclusão de uma **imagem** ao final desses informações e um comando extra para incluir **informações extras** antes ou depois desse conjunto de informações.
+Um comando importante no *LaTeX* e, em particular, no *beamer*, é o `\titlepage`, que monta uma página-título, com várias informações. No caso do *beamer*, temos comandos específicos para os seguintes campos: **título** da apresentação, **subtítulo**, **nome** e **instituição** do(s) autor(es), e **data**. Além disso o *beamer* possui uma opção para a inclusão de uma **imagem** ao final desses informações e um comando extra para incluir **informações extras** antes ou depois desse conjunto de informações.
 
 No tema *Urubu*, há um campo extra, para **informações a serem incluídas entre a instituição e a data**. Essas novas informações devem ser incluídas com o comando `\info{}`.
 
@@ -137,9 +124,9 @@ Mais informações sobre o tema podem ser lidas nas duas apresentações de exem
 
 ![Página dois da Apresentação 2](readme_img/apresentacao2_p2.png)
 
-## Utilização do $\LaTeX$-beamer
+## Utilização do *LaTeX-beamer*
 
-Para mais informações sobre como usar o $\LaTeX$-*beamer* para montar as suas apresentações, veja, por exemplo, o tutorial que se inicia em [Beamer Presentations: A Tutorial for Beginners (Part 1)—Getting Started](https://www.overleaf.com/learn/latex/Beamer_Presentations:_A_Tutorial_for_Beginners_(Part_1)—Getting_Started.)
+Para mais informações sobre como usar o *LaTeX-beamer* para montar as suas apresentações, veja, por exemplo, o tutorial que se inicia em [Beamer Presentations: A Tutorial for Beginners (Part 1)—Getting Started](https://www.overleaf.com/learn/latex/Beamer_Presentations:_A_Tutorial_for_Beginners_(Part_1)—Getting_Started.)
 
 ## Licenças
 
@@ -147,18 +134,10 @@ As **logomarcas** da [UFRJ](https://ufrj.br) ("Minerva" e "Cem Anos") são de us
 
 A **logomarca** do [IM](http://www.im.ufrj.br) foi obtida da página do [Instituto de Matemática](http://www.im.ufrj.br) da [UFRJ](https://ufrj.br) e é para uso de membros do Instituto.
 
-Os **códigos latex** contidos neste repositório estão disponíveis sob a licença [$\LaTeX$ Project Public License, Version 1.3c (LPPL-1.3c)](https://opensource.org/licenses/LPPL-1.3c), exceto pelas imagens das logomarcas, que possuem as restrições mencionadas acima.
+Os **códigos latex** contidos neste repositório estão disponíveis sob a licença [LaTeX Project Public License, Version 1.3c (LPPL-1.3c)](https://opensource.org/licenses/LPPL-1.3c), exceto pelas imagens das logomarcas, que possuem as restrições mencionadas acima.
 
 Os **exemplos em pdf** estão sob a licença [Creative Commons Attribution 4.0 International license (CC BY 4.0)](https://creativecommons.org/licenses/by/4.0/).
 
-Os arquivos de **documentação** estão disponíveis sob a licença [WTFPL](http://www.wtfpl.net/), exceto, novamente, pelas os arquivos de imagens associados.
+Os arquivos de **documentação**, assim como este `README.md` estão disponíveis sob a licença [WTFPL](http://www.wtfpl.net/), exceto, novamente, pelas os arquivos de imagens associados.
 
 Mais detalhes sobre as licenças no arquivo [LICENSES.md](LICENSES.md) e nos arquivos `*.sty` e `*.tex`.
-
-## License for this `README.md` file
-
-Copyright © 2019 [Ricardo M. S. Rosa](http://www.im.ufrj.br/rrosa) - <rrosa@im.ufrj.br>
-
-This file `README.md` is free. It comes without any warranty, to the extent permitted by applicable law.
-
-You can redistribute it and/or modify it under the terms of the [Do What The Fuck You Want To Public License, Version 2 (WTFPL version 2)](http://www.wtfpl.net/), as published by Sam Hocevar, except, however, for the images in the folder `readme_img`, which are loaded by this file and are not free (see the restrictions in [LICENSES.md](LICENSES.md)). Hence, `README.md` can be redistributed and/or modified either without the companion images or with different images as appropriately licensed.
