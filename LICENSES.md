@@ -26,10 +26,4 @@ The output files `Apresentacao1.pdf` and `Apresentacao2.pdf`, are under the [Cre
 
 The documentation files `README.md` and `LICENSES.md` are under the [Do What The F*ck You Want To Public License version 2 (WTFPL version 2)](http://www.wtfpl.net/), except, again, for all the images in the `readme_img/` folder, which have the restrictions mentioned previously.
 
-## License for this `LICENSES.md` file
-
-Copyright © 2019 [Ricardo M. S. Rosa](http://www.im.ufrj.br/rrosa) - <rrosa@im.ufrj.br>
-
-This file `LICENSES.md` is free. It comes without any warranty, to the extent permitted by applicable law.
-
-You can redistribute it and/or modify it under the terms of the [Do What The Fuck You Want To Public License, Version 2 (WTFPL version 2)](http://www.wtfpl.net/), as published by Sam Hocevar.
+They come without any warranty, to the extent permitted by applicable law. You can redistribute them and/or modify them under the terms of the [Do What The Fuck You Want To Public License, Version 2 (WTFPL version 2)](http://www.wtfpl.net/), as published by Sam Hocevar.
